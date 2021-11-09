@@ -4,7 +4,7 @@ from PIL import Image
 import math
 from operator import itemgetter
 
-name = "tanjiro.jpeg"
+name = "poster2.jpeg"
 img = Image.open('src/input/' + name, 'r')
 out = Image.new('RGB', img.size)
 
@@ -21,7 +21,7 @@ for color in inPixVal:
 
 print(f"palette size: {len(palette)}")
 #get 5 largest values in dictionary
-N = math.ceil(len(palette) / 10)
+N = math.ceil(len(palette) / 5)
 res = dict(sorted(palette.items(), key = itemgetter(1), reverse = True)[:N])
 print(res)
 

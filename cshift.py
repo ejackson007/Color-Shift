@@ -2,7 +2,7 @@
 
 from PIL import Image
 
-name = "wave.jpeg"
+name = "poster2.jpeg"
 img = Image.open('src/input/' + name, 'r')
 outl = Image.new('RGB', img.size)
 outr = Image.new('RGB', img.size)
