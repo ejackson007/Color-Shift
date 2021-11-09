@@ -1,11 +1,11 @@
+# shifts over all colors by 1 rgb to the right or left
+
 from PIL import Image
 
-name = "ep.jpeg"
+name = "wave.jpeg"
 img = Image.open('src/input/' + name, 'r')
 outl = Image.new('RGB', img.size)
 outr = Image.new('RGB', img.size)
-
-
 
 #get array full of color values for each pixel
 inPixVal = list(img.getdata())
@@ -13,12 +13,16 @@ lVal = []
 rVal = []
 
 for color in inPixVal:
-    col = (color[1], color[2], color[0])
-    lVal.append(col)
-
-for color in inPixVal:
-    col = (color[2], color[0], color[1])
-    rVal.append(col)
+    if isinstance(color, int):
+        col = (255,255,255,0)
+        lVal.append(col)
+        rVal.append(col)
+    else:
+        col = (color[1], color[2], color[0])
+        lVal.append(col)
+        col = (color[2], color[0], color[1])
+        rVal.append(col)
+    
 
 #write new image
 num = 0
